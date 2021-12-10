@@ -12,7 +12,7 @@ ClassMethod Validate(JSONSchemaContent As %String, JSONContent As %String, Outpu
     set st = GW.%Connect("jgw", "55555", "IRISAPP",,) 
     //instantiate java class
     set JSONSchemaValidator = ##class(%Net.Remote.Object).%New(GW,"dc.irisjsonschema.JSONSchemaService")
-    //returns to the service
+    //validate the JSON using a JSON Schema
     set ValidationResult = JSONSchemaValidator.validate(JSONSchemaContent, JSONContent)
     
     Write ValidationResult
